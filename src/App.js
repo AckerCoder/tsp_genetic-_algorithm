@@ -1,8 +1,9 @@
 import './App.css';
 
 import { Graph } from "react-d3-graph";
+import  MyChart from './chart.component';
 
-import {cities, roads, shortestRoad} from './utils';
+import {cities, roads, shortestRoad, dataForChart} from './utils';
 
 const App = () => {
 
@@ -61,6 +62,12 @@ const App = () => {
       highlightColor: "lightblue",
     },
   };
+
+
+
+  /////////////////////////////////////////////////////////
+
+  
   return (
     <div className="App">
       <Graph
@@ -77,6 +84,7 @@ const App = () => {
         onClickNode={onClickNode}
         onClickLink={onClickLink}
       />;
+      <MyChart dataForChart={dataForChart}/>
     </div>
   );
 }

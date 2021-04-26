@@ -1,7 +1,8 @@
-const numberOfCities = 7;
+const numberOfCities = 15;
 
 const numberOfChromosomes = 50;
 
+const numberOfIterations = 20;
 
 let cities = [];           //city = {id:"1"}
 let roads = [];            //road = {source:"1", target:"2"}, 5
@@ -223,6 +224,9 @@ const fitness = (chromosomes , numberOfSurvivers) => {
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 const initialChromosomes = generateChromosomes(numberOfChromosomes);
 
+const dataForChart = [];
+
+
 const geneticAlgorithm = (numberOfIterations) => {
 
     let bestChromosomes = generateChromosomes(numberOfChromosomes);
@@ -253,6 +257,8 @@ const geneticAlgorithm = (numberOfIterations) => {
         }
 
         bestChromosomes = fitness(bestChromosomes, 50);
+
+        dataForChart.push(getChromosomeFit(fitness(bestChromosomes, 1)[0]))
     }
 
     //console.log(fitness(bestChromosomes, 1));
@@ -260,7 +266,7 @@ const geneticAlgorithm = (numberOfIterations) => {
     return fitness(bestChromosomes, 1);
 }
 
-const solution = geneticAlgorithm(100);
+const solution = geneticAlgorithm(numberOfIterations);
 
 const formatSolution = (solution) => {
     const shortestRoad = [];
@@ -280,6 +286,5 @@ const formatSolution = (solution) => {
 const shortestRoad = formatSolution(solution);
 
 console.log(shortestRoad);
-console.log(getChromosomeFit(solution[0]));
-
-export {cities, roads, shortestRoad};
+console.log("DATA FOR CHART",dataForChart);
+export {cities, roads, shortestRoad, dataForChart};
