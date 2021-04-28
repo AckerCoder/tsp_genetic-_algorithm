@@ -14,7 +14,6 @@ const App = () => {
       <span>Numero de Iteraciones: {numberOfIterations}</span>
       <br></br>
       <br></br>
-
       <span>GRAFICA</span>
       <br></br>
       <br></br>
