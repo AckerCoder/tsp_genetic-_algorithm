@@ -1,8 +1,8 @@
-const numberOfCities = 7;
+const numberOfCities = 10;
 
 const numberOfChromosomes = 50;
 
-const numberOfIterations = 100;
+const numberOfIterations = 50;
 
 let cities = [];           //city = {id:"1", cords: [0.123, 45.1243]}
 let roads = [];            //road = {source:"1", target:"2"}, 51
@@ -295,7 +295,7 @@ const formatSolution = (solution) => {
         shortestRoad.push([getCoord(solution[0][i]), getCoord(solution[0][i+1])])
     }
     
-    shortestRoad.push([ getCoord(solution[0][solution.length]), cities[0].coords]);
+    shortestRoad.push([ getCoord(solution[0][solution[0].length-1]), cities[0].coords]);
 
     return shortestRoad;
 }
@@ -305,4 +305,4 @@ const shortestRoad = formatSolution(solution);
 
 console.log("SHORTEST PATH",shortestRoad);
 
-export {cities, roads, shortestRoad, dataForChart, numberOfCities, linesForMap};
+export {cities, roads, shortestRoad, dataForChart, numberOfCities, linesForMap, numberOfIterations};
